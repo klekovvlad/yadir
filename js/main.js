@@ -13,7 +13,7 @@ $('.feedback__slider').slick({
         }
       }
     ]
-  });
+});
 
 const menuButton = document.querySelector('.header__nav');
 const menuButtonLine = document.querySelectorAll('.header__nav > span');
@@ -65,4 +65,84 @@ popup.addEventListener('click', (event) => {
     showPopup();
   };
 });
+
+jQuery(function($){
+  $("#phone").mask("+7 (999) 999-99-99");
+});
+jQuery(function($){
+  $("#phone-1").mask("+7 (999) 999-99-99");
+});
+jQuery(function($){
+  $("#phone-2").mask("+7 (999) 999-99-99");
+});
+
+const formmessage = '<p style="text-align: center"><b style="color: #E73203; font-size: 1.5em;"> Спасибо!</b> <br> <b style="font-size: 14px;"> Мы свяжемся с Вами в ближайшее время</b></p>'
+
+
+jQuery(document).ready(function($) {
+$('.form-popup').submit(function() {
+  var str = $(this).serialize();
+      
+  $.ajax({
+    type: "POST",
+    url: "/contact.php",
+    data: str,
+    success: function(msg) {
+      if(msg == 'OK') {
+      result = formmessage;
+      $('.form-popup__body').hide();
+      } else {
+      result = msg;
+      }
+      $('.popup__message').html(result);
+    }
+  });
+  return false;
+  });
+});
+
+jQuery(document).ready(function($) {
+  $('.form_2').submit(function() {
+    var str = $(this).serialize();
+        
+    $.ajax({
+      type: "POST",
+      url: "/contact.php",
+      data: str,
+      success: function(msg) {
+        if(msg == 'OK') {
+        result = formmessage;
+        $('.form_2__body').hide();
+        } else {
+        result = msg;
+        }
+        $('.form_2__message').html(result);
+      }
+    });
+    return false;
+    });
+  });
+
+  jQuery(document).ready(function($) {
+    $('.form_3').submit(function() {
+      var str = $(this).serialize();
+          
+      $.ajax({
+        type: "POST",
+        url: "/contact.php",
+        data: str,
+        success: function(msg) {
+          if(msg == 'OK') {
+          result = formmessage;
+          $('.form_3__body').hide();
+          } else {
+          result = msg;
+          }
+          $('.form_3__message').html(result);
+        }
+      });
+      return false;
+      });
+    });
+
 
