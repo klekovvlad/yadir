@@ -34,8 +34,35 @@ menuButton.addEventListener('click', () => {
 });
 
 menuLink.forEach(link => {
-  link.addEventListener('click', () => {
+  link.addEventListener('click', (event) => {
     showMenu();
     event.stopPropagation();
   })
-})
+});
+
+const popup = document.querySelector('.popup');
+const popupBody = document.querySelector('.popup__body');
+const popupClose = document.querySelector('.popup__close');
+const popupBtn = document.querySelectorAll('.popup-btn');
+
+function showPopup() {
+  popup.classList.toggle('popup-open');
+  popupBody.classList.toggle('popup__body-open');
+}
+
+popupBtn.forEach(button => {
+  button.addEventListener('click', () => {
+    showPopup();
+  })
+});
+
+popup.addEventListener('click', (event) => {
+  let target = event.target;
+  if(target === popup) {
+    showPopup();
+  };
+  if(target === popupClose) {
+    showPopup();
+  };
+});
+
