@@ -6,7 +6,7 @@ $('.feedback__slider').slick({
     centerPadding: '0px',
     responsive: [
       {
-        breakpoint: 800,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1

@@ -332,12 +332,20 @@ button.form {
         }
     }
     &__slider {
+        &-item {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+        }
+        .slick-track {
+            min-height: 450px;
+        }
         .slick-slide {
-            margin: 0px 80px;
+            margin: auto 80px;
             opacity: 0.7;
             img {
-                margin: 0px auto;
-                max-width: 220px;
+                max-width: 200px;
             }
         }
         .slick-current {
@@ -572,6 +580,16 @@ button.form {
         &__wrapper {
             img.iphone {
                 max-width: 220px;
+            }
+        }
+        &__slider {
+            .slick-track {
+                min-height: 450px;
+            }
+            .slick-current:before {
+                width: 215px;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
     }
@@ -839,32 +857,13 @@ button.form {
             min-height: 400px;
         }
         &__slider {
-            .slick-slide {
-                opacity: 0.7;
-                margin: 0;
-                img {
-                    margin: 0px auto;
-                    max-width: 220px;
-                }
-            }
-            .slick-current {
-                opacity: 1.0;
-                position: relative;
-                min-height: 500px;
-                max-height: 500px;
-                min-width: 254px;
-                max-width: 254px;
-                text-align: center;
+            .slick-track {
+                min-height: 450px;
             }
             .slick-current:before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background: url(../img/iphone.png) no-repeat center;
-                background-size: cover;
+                width: 215px;
+                left: 50%;
+                transform: translateX(-50%);
             }
             .slick-prev {
                 left: ~'calc(50% - 150px)';
@@ -876,46 +875,36 @@ button.form {
     }
     
     .work {
-        padding: 80px 0px;
-        background: #F5F5F5;
+        padding: 50px 0px;
         &__wrapper {
-            display: grid;
             grid-template-columns: 0.5fr 1fr;
-            grid-template-rows: auto;
         } 
         &__image {
-            text-align: center;
-            img {
-                max-height: 400px;
-            }
+            display: none;
         }
         &__form {
-            background: @yellow;
-            border-radius: 30px;
-            padding: 50px;
+            padding: 30px;
+            text-align: center;
             h4 {
-                font-size: 40px;
-                .bold();
-                margin-bottom: 30px;
+                font-size: 24px;
             }
             a {
-                display: block;
-                .bold();
-                margin-bottom: 30px;
-                color: @red;
-                font-size: 28px;
+                font-size: 20px;
             }
             span.text {
-                display: block;
-                margin-bottom: 20px;
-                font-size: 18px;
+                font-size: 16px;
             }
             form {
                 display: flex;
+                flex-direction: column;
+            }
+            input {
+                min-width: 100%;
             }
             button.form {
                 margin: 0;
-                margin-left: 30px;
+                margin-top: 20px;
+                min-width: 100%;
                 height: 50px;
             }
         }
