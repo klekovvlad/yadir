@@ -671,6 +671,11 @@ button.form {
     }
     
     .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
         &__wrapper {
             grid-template-columns: 1fr 50px;
         }
@@ -688,15 +693,69 @@ button.form {
             }
         }
         &__nav {
-            display: none;
+            height: 24px;
+            width: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            span {
+                width: 100%;
+                height: 2px;
+                background: #000;
+            }
+            .out {
+                animation: out 0.5s forwards;
+            }
+            .top {
+                animation: line_top 0.5s forwards;
+            }
+            .bottom {
+                animation: line_bottom 0.5s forwards;
+            }
+            @keyframes out {
+                to {
+                    transform: translateX(120%);
+                }
+            }
+            @keyframes line_top {
+                to {
+                    transform: translateY(11px) rotate(45deg);
+                }
+            }
+            @keyframes line_bottom {
+                to {
+                    transform: translateY(-11px) rotate(-45deg);
+                }
+            }
             ul {
+                position: fixed;
+                top: 65px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #fff;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                justify-content: space-evenly;
+                justify-content: start;
+                z-index: 5;
+                padding-top: 60px;
+                transform: translateY(-150%);
                 li {
+                    margin: 10px 0px;
                     a {
                         font-size: 18px;
                     }
+                }
+            }
+            .open {
+                animation: open 0.7s forwards;
+            }
+            @keyframes open {
+                to {
+                    transform: translateY(0%);
                 }
             }
         }
@@ -704,6 +763,7 @@ button.form {
             display: none;
             align-items: center;
             margin-left: auto;
+            z-index: 5;
             &-phone {
                 display: flex;
                 flex-direction: column;
@@ -732,11 +792,15 @@ button.form {
             }
         }
     }
+    .white {
+        background: #fff;
+    }
     
     .main {
-        height: 650px;
+        height: 700px;
         &__wrapper {
             grid-template-columns: 1fr;
+            margin-top: 100px;
         }
         &__text {
             h1 {
